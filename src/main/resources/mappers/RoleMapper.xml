@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.efuture.mybatis.dao.RoleMapper">
+  <insert id="insertRole" parameterType="role" useGeneratedKeys="true" keyProperty="id">
+    <selectKey keyProperty="id" resultType="long" order="BEFORE">
+      select if(max(id) is null, 1, max(id) + 2) from t_role
+    </selectKey>
+  	INSERT INTO t_role (
+    id,
+  	role_name,
+  	note
+  	)
+  	VALUES
+  	(
+    #{id},
+  	#{roleName},
+  	#{note}
+  	)
+  </insert>
+</mapper>

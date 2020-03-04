@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 根标签 -->
+<configuration>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+
+	<typeAliases>
+		<!--type:实体类的全路径。alias:别名，通常首字母大写 -->
+		<!--<typeAlias type="com.efuture.mybatis.pojo.User" alias="User"/> -->
+		<package name="com.efuture.mybatis.pojo" />
+	</typeAliases>
+
+	<!-- 环境，可以配置多个，default：指定采用哪个环境 -->
+	<environments default="test">
+		<!-- id：唯一标识 -->
+		<environment id="test">
+			<!-- 事务管理器，JDBC类型的事务管理器 -->
+			<transactionManager type="JDBC" />
+			<!-- 数据源，池类型的数据源 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://192.168.44.3:13306/demo?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8" />
+				<property name="username" value="root" />
+				<property name="password" value="123456" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	 <mappers>
+		<!-- <mapper resource="mappers/MyMapper.xml" /> -->
+		<!-- <mapper resource="mappers/UserDaoMapper.xml" /> -->
+		<!-- <mapper resource="mappers/UserMapper.xml" /> -->
+		<!-- <mapper resource="mappers/OrderMapper.xml" /> -->
+        <mapper resource="mappers/RoleMapper.xml" />
+	 </mappers>
+</configuration>
