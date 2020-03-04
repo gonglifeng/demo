@@ -15,13 +15,9 @@ public class HelloServiceProxy implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		Object result = null;
-		System.out.println("====================");
 		System.out.println("我准备说hello。");
 		result = method.invoke(target, args);
 		System.out.println("我说说过hello了。");
-		System.out.println("====================");
-		System.out.println("===========123========");
-		
 		return result;
 	}
 
