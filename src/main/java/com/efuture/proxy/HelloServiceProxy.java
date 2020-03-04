@@ -18,6 +18,7 @@ public class HelloServiceProxy implements InvocationHandler {
 		System.out.println("我准备说hello。");
 		result = method.invoke(target, args);
 		System.out.println("我说说过hello了。");
+		System.out.println("测试冲突");
 		return result;
 	}
 
