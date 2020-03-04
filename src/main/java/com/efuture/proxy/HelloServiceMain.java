@@ -5,9 +5,6 @@ public class HelloServiceMain {
 		HelloServiceProxy helloHandler = new HelloServiceProxy();
 		HelloService proxy = (HelloService) helloHandler.bind(new HelloServiceImpl());
 		proxy.sayHello("张三");
-		proxy.sayHello("李四");
-		proxy.sayHello("王五");
-		proxy.sayHello("巩立峰");
 		
 		System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
 	}
